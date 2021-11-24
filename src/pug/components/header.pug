@@ -1,0 +1,44 @@
+-
+	let menuNames = [
+		{
+			classAcitve: true,
+			hash: '/',
+			linkText: 'Home'
+		},
+		{
+			classAcitve: false,
+			hash: 'tv-show',
+			linkText: 'TV Show'
+		},
+		{
+			classAcitve: false,
+			hash: 'movies',
+			linkText: 'Movies'
+		},
+		{
+			classAcitve: false,
+			hash: 'serits',
+			linkText: 'Series'
+		}
+	]
+	let headerActionName = [ "search", "notice", "account" ]
+
+header.header
+	.container.header__container.df.al-c.ju-b
+		.logo.df.al-c.shrink
+			img.logo__img.db(src="./images/icons/logo.svg" alt="logo")
+			p.logo__text box
+		nav.nav
+			ul.nav-list.df.al-c
+				each item in menuNames
+					if(item.hash == '/')
+						li.nav-list__item(class= {active : item.classAcitve})
+							a.nav-list__link(href=`${item.hash}`)= item.linkText
+					else
+						li.nav-list__item(class= {active : item.classAcitve})
+							a.nav-list__link(href=`#${item.hash}`)= item.linkText
+		.header-action.df.al-c
+			each actionName, i in headerActionName
+				button.header-action__btn.btn-reset
+					img.header-action__icon.db.fit(src=`./images/icons/${headerActionName[i]}.svg` alt="icons")
+

@@ -1,0 +1,80 @@
+.header{
+	padding: 15px 0;
+	&-action{
+		&__btn{
+			&:not(:last-child){
+				margin-right: 75px;
+			}
+		}
+	}
+}
+.nav-list {
+	&__item {
+		padding:0 3px 5px;
+		position: relative;
+
+		&:not(:last-child) {
+			margin-right: 50px;
+		}
+
+		&.active {
+			.nav-list__link{
+				opacity: 1;
+			}
+			&::after {
+				content: '';
+				width: 100%;
+				height: 2px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+				border-radius: 50px;
+				transition: all .3s;
+				animation: animGradient 2s infinite ease-in-out;
+			}
+			&::before {
+				content: '';
+				width: 100%;
+				height: 2px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: linear-gradient(316.53deg, #326CFF 13.2%, #26FFF2 71.54%);
+				border-radius: 50px;
+				transition: all .3s;
+			}
+		}
+
+	}
+
+	&__link {
+		color: $white;
+		opacity: .7;
+		font: 700 16px/20px var(--font);
+		transition: all .3s ease-in-out;
+		&:hover{
+			opacity: 1;
+		}
+	}
+}
+.logo{
+	&__img{
+		margin-right: 15px;
+	}
+	&__text{
+		font:500 40px/40px var(--font-second);
+	}
+}
+
+@keyframes animGradient {
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}

@@ -1,0 +1,39 @@
+-
+	let pathImg = './images/users/'
+	let popularsUsers = [
+		{
+			avatar: `${pathImg}item-1.webp`,
+			name: 'Samantha Bowen'
+		},
+		{
+			avatar: `${pathImg}item-2.webp`,
+			name: 'Rhys Birch'
+		},
+		{
+			avatar: `${pathImg}item-3.webp`,
+			name: 'James Holloway'
+		},
+		{
+			avatar: `${pathImg}item-4.webp`,
+			name: 'Joshua Walton'
+		},
+		{
+			avatar: `${pathImg}item-5.webp`,
+			name: 'Patrick Elliott'
+		},
+		{
+			avatar: `${pathImg}item-6.webp`,
+			name: "Morgan O'Neill"
+		},
+	]
+
+section.populars.section
+	.container.populars__container
+		h3.title.populars__title
+			span.title__text Popular Actors & Directors
+		.populars-items.df.al-c.ju-c.wrap
+				each user in popularsUsers
+					.populars-item
+						.populars-item__box
+							img.populars-item__img(src=`${user.avatar}` alt="#")
+						p.populars-item__name.tac= user.name

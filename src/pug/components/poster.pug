@@ -1,0 +1,18 @@
+mixin posterSection(titleText, linkText)
+	section.poster.section
+		.container.poster__container
+			h3.poster__title.title.df.al-c
+				span.title__text= titleText
+			.poster-items.df.al-c.wrap
+				block
+			if linkText
+				a.poster-link.db(href="#")= linkText
+
+
++posterSection('Trending TV Shows')
+			a.poster-item.db(href="#")
+					img.poster-item__img.db(src="./images/shows/item-1.webp" alt="#")
+
++posterSection('Trending Movies', 'See more')
+			a.poster-item.db(href="#")
+					img.poster-item__img.db(src="./images/movies/item-1.webp" alt="#")

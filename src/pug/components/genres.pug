@@ -1,0 +1,55 @@
+-
+	let genresArr = [
+		{
+			icon: 'hearts',
+			text: 'Romance',
+			bg: 'linear-gradient(109.31deg, #FD093F 2.4%, #F383F1 100%);'
+		},
+			{
+			icon: 'cinema',
+			text: 'Drama',
+			bg: 'linear-gradient(114.5deg, #0FFFDA 2.22%, #3CDB77 68.84%);'
+		},
+			{
+			icon: 'documentary',
+			text: 'Historical',
+			bg: 'linear-gradient(109.31deg, #B936FF 2.4%, #57DEDA 100%);'
+		},
+			{
+			icon: 'outline',
+			text: 'Action',
+			bg: 'linear-gradient(109.31deg, #FD093F 2.4%, #FB1378 2.41%, #FCCB1A 100%);'
+		},
+			{
+			icon: 'rocket',
+			text: 'Sci-fi',
+			bg: 'linear-gradient(109.31deg, #FF6472 2.4%, #FDA75D 100%);'
+		},
+			{
+			icon: 'ghost',
+			text: 'Horror',
+			bg: 'linear-gradient(109.31deg, #FF6472 2.4%, #FDA75D 100%);'
+		},
+			{
+			icon: 'smile',
+			text: 'Comedy',
+			bg: 'linear-gradient(109.93deg, #FFF77B 2.37%, #FFBF42 50%);'
+		},
+			{
+			icon: 'castle',
+			text: 'Documentary',
+			bg: ' linear-gradient(109.31deg, #1FA2FF 2.4%, #1FA2FF 2.41%, #1F535C 97.46%);'
+		}
+	]
+
+
+section.genres.section
+	.container.genres__container
+		h3.title.genres__title
+			span.title__text Popular Genres
+		.genres-items.df.al-c.ju-c.wrap
+			each genresItem in genresArr
+				a.genres-link.db(href="#" style=`background:${genresItem.bg}`)
+					svg(class=`genres-link__icon mr-a db sprite-${genresItem.icon}`)
+						use(xlink:href=`./images/sprite.svg#${genresItem.icon}`)
+					span.genres-link__text.db.tac= genresItem.text

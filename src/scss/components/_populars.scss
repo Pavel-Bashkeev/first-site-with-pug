@@ -1,0 +1,16 @@
+.populars-items{
+	gap: 30px;
+}
+.populars-item{
+	&__box{
+		width: 190px;
+		height: 190px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+	&__name{
+		font: 700 18px/20px var(--font);
+		color: $white;
+	}
+}

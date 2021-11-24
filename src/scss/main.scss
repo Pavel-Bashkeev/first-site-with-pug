@@ -1,0 +1,12 @@
+@import 'reset-css/sass/reset';
+@import './settings/classFrame';
+@import './settings/fonts';
+@import './settings/vars';
+@import './settings/global';
+@import './settings/sprite.scss';
+
+@import './components/header';
+@import './components/hero';
+@import './components/poster';
+@import './components/genres';
+@import './components/populars';
