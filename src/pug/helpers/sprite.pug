@@ -1,0 +1,3 @@
+mixin spriteIcon(iconName)
+	svg(class=`sprite-${iconName}` class!=attributes.class)
+		use(xlink:href=`images/sprite.svg#${iconName}`)

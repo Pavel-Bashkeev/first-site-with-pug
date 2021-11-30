@@ -1,3 +1,6 @@
+
+
+include ../helpers/sprite.pug
 section.hero.section
 	.container.hero__container.dg
 		.hero-info.gr-a
@@ -15,7 +18,9 @@ section.hero.section
 			p.hero-descr__text.
 				Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.
 			.hero-descr__link.df.al-c
-				a.hero-descr__link-watch.df.al-c(href="#") Watch
+				a.hero-descr__link-watch.df.al-c(href="#")
+					+spriteIcon('arrow').hero-descr__link-icon
+					span.hero-descr__link-text Watch
 				a.hero-descr__link-more.db(href="#") More information
 		.hero-poster.gr-a
 			img.hero-poster__img.db.lazy(data-src="./images/hero-bg.webp")

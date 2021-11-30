@@ -5,13 +5,16 @@ import {
 	dest,
 } from 'gulp';
 import pug from 'gulp-pug';
-import plumber from 'gulp-plumber';
+// import plumber from 'gulp-plumber';
 import browserSync from 'browser-sync';
 import config from '../config';
 
 export const pugBuild = () => (
 	src(`${config.src.pug}/*.pug`)
-	.pipe(plumber())
+	.on('error', function browerifyError(error) {
+		console.log(error.stack);
+		this.emit('end');
+	})
 	.pipe(pug({
 		pretty: true,
 	}))

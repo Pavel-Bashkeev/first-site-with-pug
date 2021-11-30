@@ -90,15 +90,6 @@
 				z-index: 1;
 				font: 800 16px/20px var(--font);
 
-				&::before {
-					content: '';
-					width: 14px;
-					height: 18px;
-					background-image: url('../images/sprite.svg#arrow');
-					@extend %bg-cover;
-					margin-right: 15px;
-				}
-
 				&::after {
 					content: '';
 					width: 100%;
@@ -106,7 +97,7 @@
 					top: 0;
 					left: 0;
 					position: absolute;
-					background: linear-gradient(316.53deg, #326CFF 13.2%, #26FFF2 71.54%);
+					background: linear-gradient(216.53deg, #326CFF 13.2%, #26FFF2 71.54%);
 					border-radius: 100px;
 					z-index: -1;
 					transition: all .3s ease-in-out;
@@ -118,7 +109,9 @@
 					}
 				}
 			}
-
+			&-icon{
+				margin-right: 10px;
+			}
 			&-more {
 				padding: 15px 30px;
 				color: #323232;
