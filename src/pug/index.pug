@@ -8,6 +8,7 @@ html(lang="en")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet" href="css/main.min.css")
+		link(rel="shortcut icon" href="./images/favicon.svg?v=1" type="image/svg+xml")
 		title= pageTitle
 	body
 		include components/header.pug
@@ -16,5 +17,6 @@ html(lang="en")
 			include components/poster.pug
 			include components/genres.pug
 			include components/populars.pug
-
+		include components/footer.pug
+		include components/modal.pug
 		script(src="./js/main.min.js")

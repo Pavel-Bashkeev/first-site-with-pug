@@ -1,0 +1,26 @@
+.footer{
+	background-color: #101012;
+	padding: 70px 0;
+	&__container{
+		gap: 30px 50px;
+	}
+	&-list{
+		&__item{
+			&:not(:last-child){
+				margin-bottom: 20px;
+			}
+		}
+		&__link{
+			color:#C2C2C2;
+			transition: all .3s ease-in-out;
+			width: fit-content;
+			&:hover{
+				color:$white;
+			}
+		}
+	}
+	&-lists{
+		gap:30px 50px;
+		padding: 0 15px;
+	}
+}

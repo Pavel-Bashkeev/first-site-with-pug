@@ -1,0 +1,74 @@
+-
+	let listItems = [
+		{
+			items: [
+				{
+					'#': 'Voice over and Subtitle'
+				},
+				{
+					'#': 'Media Center'
+				},
+				{
+					'#': 'Privacy'
+				},
+				{
+					'#': 'Contact us'
+				}
+			]
+		},
+		{
+			items: [
+				{
+					'#': 'Voice Description'
+				},
+				{
+					'#': 'Investor Relations'
+				},
+				{
+					'legal-provisions.html': 'Legal Provisions'
+				}
+			]
+		},
+		{
+			items: [
+				{
+					'#': 'Help Center'
+				},
+				{
+					'#': 'Job Opportunities'
+				},
+				{
+					'#': 'Cookies Preferences'
+				}
+			]
+		},
+		{
+			items: [
+				{
+					'#': 'Gift Cards'
+				},
+				{
+					'#': 'Terms of Use'
+				},
+				{
+					'#': 'Corporate Informations'
+				}
+			]
+		}
+	]
+mixin footerList()
+	each listItem in listItems
+		ul.footer-list
+			each textArr in listItem
+				each items in textArr
+					each nameLink, hrefLink in items
+						li.footer-list__item
+							a.footer-list__link(href=`${hrefLink}`)= nameLink
+
+footer.footer
+	.constainer.footer__container.df.ju-c.wrap
+		.logo.df.al-c.shrink
+			img.logo__img.db(src="./images/icons/logo.svg" alt="logo")
+			p.logo__text box
+		.footer-lists.df.wrap
+			+footerList()

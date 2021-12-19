@@ -5,6 +5,9 @@ export default () => {
 	const linkSerials = ' http://www.omdbapi.com/?s=marvel&page=1&apikey=b154db48&type=series';
 	const linkMovies = 'http://www.omdbapi.com/?s=dc-comics&page=1&apikey=b154db48&type=movie';
 	const posterMoreBtn = document.querySelector('.poster-link');
+	const modal = document.querySelector('.modal');
+	const modalContent = document.querySelector('.modal-content');
+	const modalCloseBtn = document.querySelector('.modal-close');
 
 
 
@@ -26,7 +29,7 @@ export default () => {
 					let item = series[i];
 					if (i < quantity) {
 						serialsBox.innerHTML += `
-											<div class="poster-item db" data-id-serial="${item.imdbID}" >
+											<div class="poster-item db" data-id-film="${item.imdbID}" >
 												<img class="poster-item__img db" src="${item.Poster}" alt="#">
 											</div>
 											`
@@ -36,17 +39,7 @@ export default () => {
 			.then(()=>{
 				const posterSerials = serialsBox.querySelectorAll('.poster-item')
 
-				posterSerials.forEach(item => {
-					item.addEventListener('click', ()=>{
-						const idSerial = item.dataset.idSerial;
-						console.log(idSerial);
-						fetch(`http://www.omdbapi.com/?i=${idSerial}&apikey=b154db48`)
-						.then(response => response.json())
-						.then(data => {
-							console.log(data);
-						})
-					})
-				})
+				loadModalContent(posterSerials);
 			})
 	}
 
@@ -63,7 +56,7 @@ export default () => {
 				let item = movies[i];
 				if(i < quantity) {
 					moviesBox.innerHTML += `
-					<div class="poster-item db" data-id-serial="${item.imdbID}" >
+					<div class="poster-item db" data-id-film="${item.imdbID}" >
 						<img class="poster-item__img db" src="${item.Poster}" alt="#">
 					</div>
 					`
@@ -73,21 +66,35 @@ export default () => {
 		.then(()=>{
 			const posterMovies = moviesBox.querySelectorAll('.poster-item')
 
-			posterMovies.forEach(item => {
-				item.addEventListener('click', ()=>{
-					const idSerial = item.dataset.idSerial;
-					console.log(idSerial);
-					fetch(`http://www.omdbapi.com/?i=${idSerial}&apikey=b154db48`)
-					.then(response => response.json())
-					.then(data => {
-						console.log(data);
-					})
-				})
-			})
+			loadModalContent(posterMovies);
 		})
 	}
 	loadMoviesData(prodMovies)
 
+	const loadModalContent = (items) => {
+		items.forEach(item => {
+			item.addEventListener('click', ()=>{
+				const idMovie = item.dataset.idFilm;
+				modal.classList.add('is-open');
+				document.body.classList.add('disable-scroll')
+				modalContent.innerHTML = ''
+				fetch(`http://www.omdbapi.com/?i=${idMovie}&apikey=b154db48`)
+				.then(response => response.json())
+				.then(data => {
+					console.log(data);
+					if(data.imdbID == idMovie){
+					modalContent.innerHTML = `
+						${data.Title}
+					`}
+				})
+			})
+		})
+	}
+
+	modalCloseBtn.addEventListener('click', ()=>{
+		modal.classList.remove('is-open');
+		document.body.classList.remove('disable-scroll')
+	})
 	posterMoreBtn.addEventListener('click', ()=>{
 		prodMovies++
 		loadMoviesData(prodMovies);
